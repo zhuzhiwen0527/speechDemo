@@ -11,6 +11,7 @@
 
 @interface ViewController () <AVSpeechSynthesizerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *showSpeechTextF;
+@property (weak, nonatomic) IBOutlet UITextField *recognitionTextF;
 
 @property(nonatomic,strong)SFSpeechRecognizer *bufferRec;
 @property(nonatomic,strong)SFSpeechAudioBufferRecognitionRequest *bufferRequest;
@@ -114,7 +115,7 @@
 - (IBAction)textRecognitionClick:(id)sender {
     
 
-    AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:self.showSpeechTextF.text];//需要转换的文字
+    AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:self.recognitionTextF.text];//需要转换的文字
     
     utterance.rate=0.5;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
     
@@ -148,6 +149,10 @@
         _speechSynthesizer.delegate = self;
     }
     return _speechSynthesizer;
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
