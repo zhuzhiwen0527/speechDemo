@@ -105,7 +105,6 @@
         [sender setTitle:@"开始语音识别" forState:UIControlStateNormal];
         [self.bufferEngine stop];
         [self.buffeInputNode removeTapOnBus:0];
-        self.showSpeechTextF.text = @"";
         self.bufferRequest = nil;
         self.bufferTask = nil;
     }
@@ -115,7 +114,7 @@
 - (IBAction)textRecognitionClick:(id)sender {
     
 
-    AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:sender];//需要转换的文字
+    AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:self.showSpeechTextF.text];//需要转换的文字
     
     utterance.rate=0.5;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
     

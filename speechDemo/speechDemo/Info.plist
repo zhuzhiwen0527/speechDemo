@@ -41,9 +41,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>app请求使用麦克风</string>
-    <key>NSSpeechRecognitionUsageDescription</key>
-    <string>app请求使用语音识别</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>app请求使用麦克风</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>app请求使用语音识别</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
